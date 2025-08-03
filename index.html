@@ -1,15 +1,22 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VALZO AI - Automatiza tu academia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
       --verde: #00c853;
-      --negro: #121212;
+      --verde-hover: #00b74f;
+      --negro: #0d0d0d;
+      --gris: #1a1a1a;
       --blanco: #ffffff;
+      --texto-secundario: #cccccc;
+      --fuente-principal: 'Inter', sans-serif;
     }
 
     * {
@@ -19,7 +26,7 @@
     }
 
     body {
-      font-family: 'Segoe UI', sans-serif;
+      font-family: var(--fuente-principal);
       background-color: var(--negro);
       color: var(--blanco);
       line-height: 1.6;
@@ -27,70 +34,117 @@
 
     header {
       text-align: center;
-      padding: 100px 20px;
+      padding: 120px 20px 80px;
       background: linear-gradient(to bottom right, #0f0f0f, #1b1b1b);
     }
 
     header h1 {
-      font-size: 2.5rem;
+      font-size: 2.8rem;
       margin-bottom: 20px;
+      font-weight: 700;
     }
 
     header p {
-      color: #ccc;
-      font-size: 1.2rem;
-      margin-bottom: 30px;
+      color: var(--texto-secundario);
+      font-size: 1.25rem;
+      margin-bottom: 40px;
     }
 
     .cta-button {
       background-color: var(--verde);
       color: var(--negro);
-      padding: 12px 24px;
+      padding: 14px 30px;
       border: none;
-      border-radius: 8px;
+      border-radius: 10px;
       font-size: 1rem;
-      cursor: pointer;
+      font-weight: 600;
       text-decoration: none;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 4px 12px rgba(0, 200, 83, 0.4);
+    }
+
+    .cta-button:hover {
+      background-color: var(--verde-hover);
+      transform: translateY(-2px);
     }
 
     section {
-      padding: 60px 20px;
-      max-width: 1100px;
+      padding: 80px 20px;
+      max-width: 1200px;
       margin: 0 auto;
+    }
+
+    section h2 {
+      font-size: 2.2rem;
+      margin-bottom: 40px;
+      text-align: center;
+      font-weight: 600;
     }
 
     .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
     }
 
     .card {
-      background-color: #1e1e1e;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-      transition: transform 0.2s ease;
+      background-color: var(--gris);
+      padding: 24px;
+      border-radius: 14px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .card:hover {
       transform: translateY(-5px);
+      box-shadow: 0 10px 24px rgba(0, 200, 83, 0.4);
     }
 
     .card h3 {
       color: var(--verde);
-      margin-bottom: 10px;
+      margin-bottom: 12px;
+      font-size: 1.3rem;
+    }
+
+    .card p {
+      color: var(--texto-secundario);
+    }
+
+    ul.beneficios {
+      max-width: 700px;
+      margin: 0 auto;
+      list-style: none;
     }
 
     ul.beneficios li {
-      margin-bottom: 10px;
+      margin-bottom: 16px;
+      font-size: 1.1rem;
+      padding-left: 24px;
+      position: relative;
+    }
+
+    ul.beneficios li::before {
+      content: '✔';
+      position: absolute;
+      left: 0;
+      color: var(--verde);
+    }
+
+    #contacto {
+      text-align: center;
+    }
+
+    #contacto p {
+      margin-bottom: 20px;
+      color: var(--texto-secundario);
     }
 
     footer {
-      background-color: #0d0d0d;
+      background-color: #0b0b0b;
       text-align: center;
-      padding: 40px 20px;
-      color: #aaa;
+      padding: 50px 20px;
+      color: #888;
+      font-size: 0.95rem;
     }
 
     .whatsapp {
@@ -99,16 +153,24 @@
       right: 20px;
       background-color: var(--verde);
       color: white;
-      padding: 12px;
+      padding: 16px;
       border-radius: 50%;
-      font-size: 24px;
+      font-size: 26px;
       text-decoration: none;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+      transition: background-color 0.3s ease;
+    }
+
+    .whatsapp:hover {
+      background-color: var(--verde-hover);
     }
 
     @media (max-width: 600px) {
       header h1 {
         font-size: 2rem;
+      }
+      header p {
+        font-size: 1rem;
       }
     }
   </style>
@@ -125,19 +187,19 @@
     <div class="cards">
       <div class="card">
         <h3>Gestión de clases</h3>
-        <p>Automatizamos horarios y reservas.</p>
+        <p>Automatizamos horarios, reservas y planificación semanal de forma dinámica.</p>
       </div>
       <div class="card">
         <h3>Cancelaciones</h3>
-        <p>Procesos rápidos y sin confusión.</p>
+        <p>Gestión de ausencias y reprogramaciones sin fricciones.</p>
       </div>
       <div class="card">
-        <h3>FAQ automáticas</h3>
-        <p>Respuestas automáticas 24/7.</p>
+        <h3>Preguntas frecuentes</h3>
+        <p>IA que responde dudas comunes al instante, sin saturar tu WhatsApp.</p>
       </div>
       <div class="card">
-        <h3>Comunicación</h3>
-        <p>Informes y recordatorios automáticos.</p>
+        <h3>Comunicación automática</h3>
+        <p>Envío de recordatorios, informes y avisos directamente a familias y alumnos.</p>
       </div>
     </div>
   </section>
@@ -147,15 +209,15 @@
     <div class="cards">
       <div class="card">
         <h3>1. Analizamos</h3>
-        <p>Evaluamos las necesidades de tu academia.</p>
+        <p>Detectamos los puntos críticos de tu gestión educativa actual.</p>
       </div>
       <div class="card">
         <h3>2. Configuramos</h3>
-        <p>Preparamos la IA a medida.</p>
+        <p>Adaptamos el sistema a tu metodología y flujo de trabajo.</p>
       </div>
       <div class="card">
         <h3>3. Automatizamos</h3>
-        <p>Ponemos en marcha los flujos automáticos.</p>
+        <p>Tu academia empieza a funcionar con menos intervención humana.</p>
       </div>
     </div>
   </section>
@@ -163,25 +225,26 @@
   <section id="beneficios">
     <h2>Beneficios</h2>
     <ul class="beneficios">
-      <li>✔ Ahorra tiempo administrativo</li>
-      <li>✔ Mejora la comunicación con padres y alumnos</li>
-      <li>✔ Historial automatizado de clases y alumnos</li>
-      <li>✔ Disponibilidad 24/7 para consultas frecuentes</li>
+      <li>Ahorra hasta 15 horas al mes en tareas repetitivas</li>
+      <li>Mejora la comunicación sin esfuerzo</li>
+      <li>Registro automático del historial de clases</li>
+      <li>Disponibilidad 24/7 para alumnos y familias</li>
+      <li>Imagen moderna y profesional de tu academia</li>
     </ul>
   </section>
 
   <section id="contacto">
     <h2>Contacto</h2>
-    <p>Escríbenos por WhatsApp para una demo:</p>
-    <a href="https://wa.me/34600000000" class="cta-button">Ir a WhatsApp</a>
+    <p>¿Quieres ver VALZO IA en acción? Escríbenos directamente por WhatsApp.</p>
+    <a href="https://wa.me/34628675767" class="cta-button">Ir a WhatsApp</a>
   </section>
 
   <footer>
     <p>VALZO AI © 2025 – Todos los derechos reservados</p>
-    <p>Email: contacto@valzo.ai</p>
+    <p>Email: valzo.ia.contacto@gmail.com</p>
   </footer>
 
-  <a href="https://wa.me/34600000000" class="whatsapp" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <a href="https://wa.me/34628675767" class="whatsapp" target="_blank" rel="noopener" aria-label="WhatsApp">
     <i class="fab fa-whatsapp"></i>
   </a>
 </body>
